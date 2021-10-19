@@ -1,0 +1,8 @@
+[2021-10-19T02:15:44.407] [ERROR] error - ReferenceError: ctx is not defined
+    at E:\project\manager-fe-server\app.js:28:3
+    at dispatch (E:\project\manager-fe-server\node_modules\koa-compose\index.js:42:32)
+    at views (E:\project\manager-fe-server\node_modules\koa-views\src\index.js:91:12)
+    at dispatch (E:\project\manager-fe-server\node_modules\koa-compose\index.js:42:32)
+    at serve (E:\project\manager-fe-server\node_modules\koa-static\index.js:53:15)
+    at async logger (E:\project\manager-fe-server\node_modules\koa-logger\index.js:67:7)
+    at async bodyParser (E:\project\manager-fe-server\node_modules\koa-bodyparser\index.js:95:5)
