@@ -8,9 +8,12 @@ const logger = require('koa-logger')
 const log4js = require('./utils/log4')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const router = require('koa-router')()
 
 // error handler
 onerror(app)
+
+require('./config/db')
 
 // middlewares
 app.use(bodyparser({
@@ -37,9 +40,11 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+router.prefix("/api")
+router.use(users.routes(), users.allowedMethods())
+
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(router.routes(), router.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
